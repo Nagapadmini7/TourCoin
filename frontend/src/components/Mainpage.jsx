@@ -1,7 +1,19 @@
-import React from 'react'
+ // Mainpage.js
+import React from 'react';
+import Navbar from './Navbar';
+import Slider from './Slider';
+import Icons from './Icons';
+import Footer from './Footer';
 
-export default function Mainpage() {
+const Mainpage = () => {
   return (
-    <div>Mainpage</div>
-  )
-}
+    <div>
+      <Navbar />
+      <Slider />
+      <Icons />
+      <Footer />
+    </div>
+  );
+};
+
+export default Mainpage;

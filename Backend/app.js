@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 const port = process.env.PORT || 8080;
 const User = require("./Models/user.js");
+const cors = require('cors');
 
 const userDetail = require("./Models/userDetail.js");
 // const authController = require("./controllers/auth.controller.js");
@@ -16,6 +17,10 @@ app.set("view engine", "ejs");
 app.use(bodyParser.json());
 app.use(express.static("public"));
 require("dotenv").config();
+
+app.use(cors({
+  origin: '*',
+}));
 
 // middleware
 app.use((req, res, next) => {

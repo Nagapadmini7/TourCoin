@@ -4,6 +4,7 @@ import LoginPage from './auth/Loginpage';
 import Mainpage from './components/Mainpage';
 import Signup from './auth/signup';
 import Login from './auth/login';
+import About from './components/About';
  
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/main" element={<Mainpage />} />
+        <Route path="/about" element={<About/>} />
         <Route path="/" element={<LoginPage />} />
         <Route path="/login" element={<Login/>} />
         <Route path="*" element={<Navigate to="/" />} />
