@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@solana/wallet-standard-features": "^1.2.0",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",

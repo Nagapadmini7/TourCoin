@@ -9,7 +9,7 @@ use solana_program::{
     sysvar::{rent::Rent, Sysvar},
 };
 
-// Define the struct to represent Passport information
+
 pub struct Passport {
     pub passport_number: String,
     pub expiration_date: u64,
@@ -17,14 +17,14 @@ pub struct Passport {
     pub verified: bool,
 }
 
-// Implement IsInitialized trait for Passport struct
+
 impl IsInitialized for Passport {
     fn is_initialized(&self) -> bool {
         true
     }
 }
 
-// Declare the entry point for the program
+//entrypoint
 #[entrypoint]
 pub fn register_passport(
     accounts: &[AccountInfo],
@@ -49,7 +49,7 @@ pub fn register_passport(
         verified: false,
     };
 
-    // Serialize the Passport struct and save it to the user account's data
+  
     Passport::pack(passport, &mut user_account.data.borrow_mut())?;
 
     // Emit event for passport registration
@@ -74,18 +74,18 @@ pub fn verify_passport(
         return Err(ProgramError::MissingRequiredSignature);
     }
 
-    // Deserialize the Passport struct from the user account's data
+    
     let mut passport_data = user_account.data.borrow_mut();
     let mut passport = Passport::unpack_unchecked(&mut passport_data)?;
 
-    // Verify the passport using external verification service
+
     let verified = verify_passport_external(&passport_number, expiration_date, &issuing_country);
 
-    // Update the verification status
+ 
     passport.verified = verified;
     Passport::pack(passport, &mut passport_data)?;
 
-    // Emit event for passport verification
+
     if verified {
         emit_event("Passport verified successfully");
 

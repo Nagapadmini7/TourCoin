@@ -6,9 +6,11 @@ import Signup from './auth/signup';
 import Login from './auth/login';
 import About from './components/About';
  
+import { SolanaProvider, wallets } from './auth/SolanaContext';
 
 const App = () => {
   return (
+    <SolanaProvider wallets={wallets}>
     <Router>
       <Routes>
         <Route path="/main" element={<Mainpage />} />
@@ -17,7 +19,7 @@ const App = () => {
         <Route path="/login" element={<Login/>} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </Router>
+    </Router></SolanaProvider>
   );
 };
 
