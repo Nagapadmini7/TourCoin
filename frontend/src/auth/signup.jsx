@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import GoogleLoginButton from './google_login';
 
+
 const Signup = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -61,6 +62,7 @@ const Signup = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
+         
           <input
             className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
             type="password"

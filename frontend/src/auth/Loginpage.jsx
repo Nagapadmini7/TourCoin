@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Login from './login';
 import Signup from './signup';
 import GoogleLoginButton from './google_login';
+import ConnectButton from './ConnectButton';
 
 function Sign() {
 
@@ -29,7 +30,7 @@ function Sign() {
 
                {/* copy  */}
                <Signup />
-        
+               <ConnectButton />
 
 
             </div>
